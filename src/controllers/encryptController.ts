@@ -1,5 +1,5 @@
 import { Request,Response } from "express"
-import { createKeyService, validateHelloService} from "../services/encryptService"
+import { createKeyService, validateHelloService,encryptMessageService } from "../services/encryptService"
 
 class createKeyController{
     async handle(request: Request, response: Response){
@@ -35,10 +35,27 @@ class validateHelloController{
                 message:error.message
             })
         }
-
-
     }
 }
 
 
-export { createKeyController, validateHelloController}
+class encryptMessageController{
+    async handle(request: Request, response: Response){
+        const EncryptMessageService = new encryptMessageService();
+
+        try {
+            const { message } = request.body
+
+            const result = await EncryptMessageService.execute(message);
+
+            return response.json(result)
+            
+        } catch (error) {
+            response.status(400).json({
+                message:error.message
+            })
+        }
+    }
+}
+
+export { createKeyController, validateHelloController,encryptMessageController }

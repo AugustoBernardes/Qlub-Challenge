@@ -81,12 +81,27 @@ class validateHelloService{
             throw new Error("AES key don't match!");
             
         }
+    } 
+}
 
-      
+class encryptMessageService{
+    async execute(message:string){
+
+        message.trim()
+
+        if(message == ''){
+            throw new Error("Imput is empty!");
+            
+        }
+        
+        return ({
+            message_encrypted:encrypt(message),
+        
+        })
     }
-    
 }
 
 
 
-export { createKeyService,validateHelloService }
+
+export { createKeyService,validateHelloService,encryptMessageService}
