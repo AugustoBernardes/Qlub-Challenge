@@ -6,6 +6,7 @@ Thats Qlub Challenge.
 + Validate this key and decrypt message
 ---
 ## Observations 
++ Video explaining the code and showing [here](https://youtu.be/fE8GaFa0_Lw)
 + To dowload the packages use NPM install or YARN 
 + To run the app use YARN dev
 + Don't forget to change the file (.env_example) to (.env )
